@@ -16,10 +16,10 @@ describe("AppComponent", () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-full-stack-course'`, () => {
+  it(`should have as title 'buy-and-sell'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual("angular-full-stack-course");
+    expect(app.title).toEqual("buy-and-sell");
   });
 
   it("should render title", () => {
@@ -27,7 +27,7 @@ describe("AppComponent", () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector(".content span").textContent).toContain(
-      "angular-full-stack-course app is running!"
+      "buy-and-sell app is running!"
     );
   });
 });
