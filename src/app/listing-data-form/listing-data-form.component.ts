@@ -8,7 +8,11 @@ import { Listing } from "../types";
   styleUrls: ["./listing-data-form.component.css"],
 })
 export class ListingDataFormComponent implements OnInit {
-  @Input() buttonText;
+  @Input() buttonText: string;
+  @Input() currentName: string = "";
+  @Input() currentDescription: string = "";
+  @Input() currentPrice: string = "";
+
   name: string = "";
   description: string = "";
   price: string = "";
@@ -17,7 +21,11 @@ export class ListingDataFormComponent implements OnInit {
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.name = this.currentName;
+    this.description = this.currentDescription;
+    this.price = this.currentPrice;
+  }
 
   onButtonClicked(): void {
     this.onSubmit.emit({
