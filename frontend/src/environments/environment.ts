@@ -4,6 +4,15 @@
 
 export const environment = {
   production: false,
+  firebase: {
+    apiKey: "AIzaSyDdAzxzKMoD1TU0OK5cUUTOExdxzsn6kUk",
+    authDomain: "angular-full-stack-course.firebaseapp.com",
+    projectId: "angular-full-stack-course",
+    storageBucket: "angular-full-stack-course.appspot.com",
+    messagingSenderId: "669594347671",
+    appId: "1:669594347671:web:3a2ae64eaf90b2eb5461d2",
+    measurementId: "G-84EE2TQN8Z",
+  },
 };
 
 /*
