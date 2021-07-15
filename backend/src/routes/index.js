@@ -1,4 +1,5 @@
+import { addViewToListingRoute } from "./addViewToListing";
 import { getAllListingsRoute } from "./getAllListings";
 import { getListingRoute } from "./getListing";
 
-export default [getAllListingsRoute, getListingRoute];
+export default [addViewToListingRoute, getAllListingsRoute, getListingRoute];
