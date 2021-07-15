@@ -6,7 +6,7 @@ export const getUserListingsRoute = {
   method: "GET",
   path: "/api/users/{userId}/listings",
   handler: async (req, h) => {
-    const token = request.headers.authtoken;
+    const token = req.headers.authtoken;
     const user = await admin.auth().verifyIdToken(token);
     const userId = req.params.userId;
 
