@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-full-stack-course": {
+    "buy-and-sell": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-full-stack-course",
+            "outputPath": "dist/buy-and-sell",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-full-stack-course:build:production"
+              "browserTarget": "buy-and-sell:build:production"
             },
             "development": {
-              "browserTarget": "angular-full-stack-course:build:development"
+              "browserTarget": "buy-and-sell:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -74,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-full-stack-course:build"
+            "browserTarget": "buy-and-sell:build"
           }
         },
         "test": {
@@ -92,5 +92,5 @@
       }
     }
   },
-  "defaultProject": "angular-full-stack-course"
+  "defaultProject": "buy-and-sell"
 }
