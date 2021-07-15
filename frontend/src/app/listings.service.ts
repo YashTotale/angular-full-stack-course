@@ -50,7 +50,9 @@ export class ListingsService {
                   `/api/users/${user.uid}/listings`,
                   httpOptionsWithAuthToken(token)
                 )
-                .subscribe((listings) => observer.next(listings));
+                .subscribe((listings) => {
+                  observer.next(listings);
+                });
             } else {
               observer.next([]);
             }
@@ -59,8 +61,8 @@ export class ListingsService {
     });
   }
 
-  deleteListing(id: string): Observable<void> {
-    return this.http.delete<void>(`/api/listings/${id}`);
+  deleteListing(id: string): Observable<any> {
+    return this.http.delete(`/api/listings/${id}`);
   }
 
   createListing(
@@ -74,12 +76,8 @@ export class ListingsService {
           user.getIdToken().then((token) => {
             this.http
               .post<Listing>(
-                `/api/listings`,
-                {
-                  name,
-                  description,
-                  price,
-                },
+                "/api/listings",
+                { name, description, price },
                 httpOptionsWithAuthToken(token)
               )
               .subscribe(() => observer.next());
@@ -94,14 +92,19 @@ export class ListingsService {
     description: string,
     price: number
   ): Observable<Listing> {
-    return this.http.post<Listing>(
-      `/api/listings/${id}`,
-      {
-        name,
-        description,
-        price,
-      },
-      httpOptions
-    );
+    return new Observable<Listing>((observer) => {
+      this.auth.user.subscribe((user) => {
+        user &&
+          user.getIdToken().then((token) => {
+            return this.http
+              .post<Listing>(
+                `/api/listings/${id}`,
+                { name, description, price },
+                httpOptionsWithAuthToken(token)
+              )
+              .subscribe(() => observer.next());
+          });
+      });
+    });
   }
 }

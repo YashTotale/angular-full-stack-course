@@ -8,7 +8,7 @@ export const createNewListingRoute = {
   handler: async (req, h) => {
     const token = req.headers.authtoken;
     const user = await admin.auth().verifyIdToken(token);
-    const userId = user.uid;
+    const userId = user.user_id;
 
     const id = uuid();
     const { name = "", description = "", price = 0 } = req.payload;
