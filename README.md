@@ -1,1 +1,1 @@
-# angular-full-stack-course
+# Angular Full Stack Course
